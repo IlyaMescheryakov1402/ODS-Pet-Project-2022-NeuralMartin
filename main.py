@@ -18,13 +18,12 @@ dp = Dispatcher(bot)
 # from aiogram import types
 @dp.message_handler(commands='start')
 async def cmd_start(message: types.Message):
-    path_to_model = 'fantasy-10.pt'
     await message.answer('Сначала мне надо настроиться на работу.. Прошу не ругать и немного подождать')
     global model
     # device = 'cpu'
     print('device - cuda' if torch.cuda.is_available() else 'device - cpu')
     model = GPT2LMHeadModel.from_pretrained('gpt2')
-    path_to_model = 'fantasy-10.pt'
+    path_to_model = Path('kaggle/input/model-snapshot/fantasy-10.pt')
     global dataset_tokenizer
     dataset_tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
     dataset_tokenizer.pad_token = dataset_tokenizer.eos_token
