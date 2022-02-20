@@ -7,3 +7,6 @@
 
 
 Ссылка: https://t.me/neuroMartin_bot
+
+
+Бот запускается через main.py
